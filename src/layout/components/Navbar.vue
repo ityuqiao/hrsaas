@@ -13,8 +13,8 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img src="@/assets/common/bigUserHeader.png" class="user-avatar">
-          <span class="name">管理员</span>
+          <img v-imgerror="defaultImg" :src="userInfo.staffPhoto" class="user-avatar">
+          <span class="name">{{ userInfo.username }}</span>
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
@@ -44,16 +44,21 @@ export default {
   components: {
     Hamburger
   },
+  data() {
+    return {
+      defaultImg: require('@/assets/common/head.jpg')
+    }
+  },
   computed: {
-    ...mapGetters(['sidebar', 'avatar'])
+    ...mapGetters(['sidebar', 'userInfo'])
   },
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
-      await this.$store.dispatch('user/logout')
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+      await this.$store.dispatch('user/logOut')
+      this.$router.push('/login')
     }
   }
 }
