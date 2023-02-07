@@ -8,6 +8,7 @@ import attendancesRouter from './modules/attendances'
 import salarysRouter from './modules/salarys'
 import settingRouter from './modules/setting'
 import socialRouter from './modules/social'
+import userRouter from './modules/user'
 
 Vue.use(Router)
 
@@ -64,9 +65,19 @@ export const constantRoutes = [
       }
     ]
   },
-
+  {
+    path: '/import',
+    name: 'import',
+    component: Layout,
+    hidden: true,
+    children: [{
+      path: '',
+      component: () => import('@/views/import/index.vue')
+    }]
+  },
+  userRouter
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+
 ]
 export const asyncRoutes = [
   approvalsRouter,
@@ -82,7 +93,7 @@ const createRouter = () =>
   new Router({
     // mode: 'history', // require service support
     scrollBehavior: () => ({ y: 0 }),
-    routes: [...constantRoutes, ...asyncRoutes]
+    routes: constantRoutes
   })
 
 const router = createRouter()
