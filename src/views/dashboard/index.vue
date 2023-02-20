@@ -24,7 +24,8 @@
           <div slot="header" class="header">
             <span>工作日历</span>
           </div>
-        <!-- 放置日历组件 -->
+          <!-- 放置日历组件 -->
+          <calendar />
         </el-card>
         <!-- 公告 -->
         <el-card class="box-card">
@@ -37,7 +38,7 @@
                     <img src="@/assets/common/img.jpeg" alt="">
                     <div>
                       <p><span class="col">朱继柳</span> 发布了 第1期“传智大讲堂”互动讨论获奖名单公布</p>
-                      <p>2018-07-21 15:21:38</p>
+                      <p>2023-01-21 15:21:38</p>
                     </div>
                   </div>
                 </li>
@@ -46,7 +47,7 @@
                     <img src="@/assets/common/img.jpeg" alt="">
                     <div>
                       <p><span class="col">朱继柳</span> 发布了 第2期“传智大讲堂”互动讨论获奖名单公布</p>
-                      <p>2018-07-21 15:21:38</p>
+                      <p>2023-02-21 15:21:38</p>
                     </div>
                   </div>
                 </li>
@@ -55,7 +56,7 @@
                     <img src="@/assets/common/img.jpeg" alt="">
                     <div>
                       <p><span class="col">朱继柳</span> 发布了 第3期“传智大讲堂”互动讨论获奖名单公布</p>
-                      <p>2018-07-21 15:21:38</p>
+                      <p>2023-01-15 15:21:38</p>
                     </div>
                   </div>
                 </li>
@@ -83,7 +84,8 @@
           <div slot="header" class="header">
             <span>绩效指数</span>
           </div>
-        <!-- 放置雷达图 -->
+          <!-- 放置雷达图 -->
+          <radar />
         </el-card>
         <!-- 帮助连接 -->
         <el-card class="box-card">
@@ -120,9 +122,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import calendar from './components/calendar.vue'
+import radar from './components/radar.vue'
 
 export default {
   name: 'Dashboard',
+  components: {
+    calendar,
+    radar
+  },
   data() {
     return {
       defaultImg: require('@/assets/common/head.jpg')

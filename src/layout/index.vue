@@ -5,13 +5,16 @@
     <div class="main-container">
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
+        <TagsView />
       </div>
+      <!-- 多页签 -->
       <app-main />
     </div>
   </div>
 </template>
 
 <script>
+import tagsView from '@/store/modules/tagsView'
 import { Navbar, Sidebar, AppMain } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 
@@ -20,7 +23,8 @@ export default {
   components: {
     Navbar,
     Sidebar,
-    AppMain
+    AppMain,
+    tagsView
   },
   mixins: [ResizeMixin],
   computed: {

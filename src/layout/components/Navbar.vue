@@ -11,6 +11,11 @@
     </div>
 
     <div class="right-menu">
+      <!-- 语言选择插件 -->
+      <langSelect style="margin-right: 15px;" />
+      <!-- 颜色选择 -->
+      <ScreenFull class="right-menu-item" />
+      <ThemePicker class="right-menu-item" style="margin-bottom: -20px; margin-right: 15px;" />
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img v-imgerror="defaultImg" :src="userInfo.staffPhoto" class="user-avatar">
@@ -131,7 +136,7 @@ export default {
 			height: 100%;
 			font-size: 18px;
 			color: #5a5e66;
-			vertical-align: text-bottom;
+			vertical-align: middle;
 
 			&.hover-effect {
 				cursor: pointer;
